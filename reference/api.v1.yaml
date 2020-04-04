@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: generate
+  title: API
   version: '1.0'
   description: ''
   contact: {}
@@ -11,7 +11,7 @@ paths:
   /user/generate/v1/:
     parameters: []
     post:
-      summary: ''
+      summary: Получение токена
       operationId: post-user-generate-v1
       responses:
         '200':
@@ -36,7 +36,7 @@ paths:
       description: Создание юзера по device_id
   /user/info/v1/:
     get:
-      summary: Your GET endpoint
+      summary: Информация о пользователе
       tags: []
       responses:
         '200':
@@ -70,7 +70,7 @@ paths:
     parameters: []
   /user/credit/v1/:
     post:
-      summary: ''
+      summary: Начисление баллов
       operationId: post-user-credit-v1
       responses:
         '200':
@@ -108,7 +108,7 @@ paths:
                   type: string
   /awards/v1/:
     get:
-      summary: Your GET endpoint
+      summary: Список призов
       tags: []
       responses:
         '200':
@@ -131,7 +131,7 @@ paths:
     parameters: []
   /leaders/v1/:
     get:
-      summary: Your GET endpoint
+      summary: Список лидеров
       tags: []
       responses:
         '200':
