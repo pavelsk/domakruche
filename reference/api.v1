@@ -1,0 +1,154 @@
+openapi: 3.0.0
+info:
+  title: generate
+  version: '1.0'
+  description: ''
+  contact: {}
+  license: {}
+servers:
+  - url: 'http://domakruche.ru/api'
+paths:
+  /user/generate/v1/:
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-user-generate-v1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  token:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                device_id:
+                  type: string
+      description: Создание юзера по device_id
+  /user/info/v1/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  balance:
+                    type: integer
+                  last_credit_time:
+                    type: string
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-user-info
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: token
+      description: Получить инфу о юзере
+    parameters: []
+  /user/credit/v1/:
+    post:
+      summary: ''
+      operationId: post-user-credit-v1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+            application/xml:
+              schema: {}
+            multipart/form-data:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+      description: Начислить баллы
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+  /awards/v1/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    balance_required:
+                      type: integer
+                    image:
+                      type: string
+      operationId: get-awards-list
+      description: Список возможных призов
+    parameters: []
+  /leaders/v1/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    balance:
+                      type: integer
+      operationId: get-leaders-v1
+      description: Список лидеров
+components:
+  schemas: {}
+  securitySchemes: {}
